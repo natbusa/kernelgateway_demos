@@ -12,6 +12,8 @@ https://github.com/natbusa/kernelgateway_demos/blob/master/hello-world/notebooks
 
 This demo shows how easy it is to explose train, and scoring ML functions straight from the notebook
 
+https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/notebooks/iris-classifier.ipynb
+
 # Resources
 
 https://github.com/jupyter/kernel_gateway_demos  
