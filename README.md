@@ -6,7 +6,7 @@ Some demo's to get you started exposing APIs from your jupyter notebooks.
 
 This demo shows how to build a collection of counters as RESTfull resources
 
-https://github.com/natbusa/kernelgateway_demos/hello-world/notebooks/getting-started.ipynb
+https://github.com/natbusa/kernelgateway_demos/blob/master/hello-world/notebooks/getting-started.ipynb
 
 ## Iris classification
 
