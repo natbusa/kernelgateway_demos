@@ -90,7 +90,9 @@ DELETE /counters/:id
 ```
 
 list the whole collection of current counters
-```GET /counters```
+```
+GET /counters
+```
 
 Example:
 ```
