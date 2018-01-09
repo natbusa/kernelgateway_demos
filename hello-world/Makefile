@@ -3,8 +3,10 @@
 	
 .PHONY: help install uninstall notebook gateway 
 
-IMAGE=autoscience/kernel_gateway
+SHELL := /bin/bash
 
+IMAGE=autoscience/kernel_gateway
+ 
 help:
 	@echo 'Host commands:'
 	@echo ''
@@ -19,11 +21,12 @@ install:
 	conda install -n jkg_demo_env -q -y -c conda-forge jupyter_kernel_gateway
 
 uninstall:
-	source deactivate && conda remove --name jkg_demo_env --all
+	source deactivate && \
+	conda remove --name jkg_demo_env --all
 
 notebook:
 	source activate jkg_demo_env && \
-	jupyter notebook --notebook-dir=notebooks 
+	jupyter notebook --notebook-dir=notebooks
 
 # http://jupyter-kernel-gateway.readthedocs.io/en/latest/config-options.html
 # Setting allow-origin options in a lax way to enable xmlhttprequest from all origin
@@ -32,7 +35,7 @@ notebook:
 gateway:
 	source activate jkg_demo_env && \
 	jupyter kernelgateway \
-	  --debug \
+	  --KernelGatewayApp.log_level=WARN \
 	  --KernelGatewayApp.ip=0.0.0.0 \
 	  --KernelGatewayApp.port=9000 \
 	  --KernelGatewayApp.api=notebook-http \
