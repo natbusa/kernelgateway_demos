@@ -164,7 +164,7 @@ where :x and :y are dimension index from 0 to 3 according to the following list:
 `['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']`
 
 Try: http://localhost:9000/plots/scatter/0/1
-![scatterplot]((https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/screenshot.png)
+![scatterplot](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/scatterplot.png)
 
 #### Train Data
 ```
@@ -184,14 +184,42 @@ where :m from 0 to 5 fits one of the following models:
   - Decision Tree
   - Decision Tree (depth limited)
 
-For more information about this check http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
+For more information about this check   
+http://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
 
-Try: http://localhost:9000/model/train/0/1?model=0, should produce the following text, and train a knn model for the iris data
+Try: http://localhost:9000/model/train/0/1?model=0,  
+should produce the following text, and train a knn model for the iris data
 ```
 KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
            metric_params=None, n_jobs=1, n_neighbors=3, p=2,
            weights='uniform')
 ```
+
+#### Classify Data Points on the trained model
+```
+GET /model/predict/?variable=:v
+```
+
+Will classify the data according to the trained model,  
+where :v is a tuple of comma separated values, one for each dimension of the model
+
+Try: http://localhost:9000/model/predict?variables=5.2,2.2
+should score the tuple [5.2, 2.2] and produce the following text, 
+```
+versicolor
+```
+
+#### Model precision, recall, and classify regions
+```
+GET /model/confusion/plot
+GET /model/predict/plot
+```
+
+Try: http://localhost:9000/model/confusion/plot
+![confusion](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/confusion.png)
+
+Try: http://localhost:9000/model/predict/plot
+![overlay](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/overlay.png)
 
 # Resources
 
