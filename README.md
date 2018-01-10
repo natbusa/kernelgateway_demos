@@ -108,11 +108,33 @@ curl --request GET  --url http://localhost:9000/counters
 
 This demo shows how easy it is to explose train, and scoring ML functions straight from the notebook
 
+The full API, including tuning, scoring, exploration exposing both json data as well as png images can be found on the following link:   
 https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/notebooks/iris-classifier.ipynb
+
+![screenshot](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/screenshot.png)
+
+### How to run
+
+This demo requires docker (https://www.docker.com/community-edition#/download) to be installed in the system. Also use curl or postman or your web browser to inspect that the API exposed by the notebook is working correctly.
+
+You need to build the container with the command:
+```docker build . -t iris_webapp_demo```
+
+Type the following to run the container and expose the webapp on port 9000:
+```docker run . -t -p 9000:9000 iris_webapp_demo```
+
+Demo will run on http://localhost:9000/public/index.html  
+
+The full API, including tuning, scoring, exploration exposing both json data as well as png images can be found on the following link:   
+https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/notebooks/iris-classifier.ipynb
+
+When finished with this demo, you can remove stop and remove the container by typing:
+```
+docker kill iris_webapp_demo
+docker rm iris_webapp_demo
+```
 
 # Resources
 
 https://github.com/jupyter/kernel_gateway_demos  
 https://github.com/jupyter/kernel_gateway/tree/master/etc/api_examples
-
-
