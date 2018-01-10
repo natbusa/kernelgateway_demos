@@ -221,6 +221,39 @@ Try: http://localhost:9000/model/confusion/plot
 Try: http://localhost:9000/model/predict/plot
 ![overlay](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/overlay.png)
 
+### Web App
+
+You can use your favourite js and css framework to render the API exposed by the Jupyter Kernel Gateway. This demo uses a minimal jquery framework with backgroung ajax calls and where data, once received is injected in the html DOM.
+
+Have a look at the js:  
+https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/static/assets/js/script.js
+
+Here is the jquery code which trains the model and generate the confusion matrix and the classification overlay pic.
+```javascript
+$("button#train").click(function(){
+
+    var var_x = $("#var_x").val();
+    var var_y = $("#var_y").val();
+    var model = $("#model").val()
+    var path = "/model/train/"+var_x+"/"+var_y+"?model="+model
+
+    $.get(path).done(function(data, status){
+        $("#train_output").html("Model: " + data);
+
+        var p1 = $.get("/model/confusion/plot");
+        var p2 = $.get("/model/predict/plot");
+
+        $.when(p1, p2).done(function(r1, r2) {
+            $("#predict_plot").html(r1[0]);
+            $("#confusion_plot").html(r2[0]);
+
+            $("#predict_form").show()
+        });
+
+    });
+});
+```
+
 # Resources
 
 https://github.com/jupyter/kernel_gateway_demos  
