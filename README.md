@@ -14,6 +14,7 @@ This demo requires conda (https://conda.io/docs/index.html) to be installed in t
 make install
 make gateway
 ```
+
 The above command will install the necessary packages in a demo conda environment and start the notebook in HTTP API gateway mode on `port 9000`, you can also inspect the notebook, by starting jupyter in notebook mode by running `make notebook` available on `port 8888`. When finished with this demo, you can remove the conda environment by typing `make uninstall`.
 
 ### Testing the API
@@ -108,8 +109,7 @@ curl --request GET  --url http://localhost:9000/counters
 
 This demo shows how easy it is to explose train, and scoring ML functions straight from the notebook
 
-The full API, including tuning, scoring, exploration exposing both json data as well as png images can be found on the following link:   
-https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/notebooks/iris-classifier.ipynb
+The full API, including tuning, scoring, exploration exposing both json data as well as png images can be found on the following link: https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/notebooks/iris-classifier.ipynb
 
 ![screenshot](https://raw.githubusercontent.com/natbusa/kernelgateway_demos/master/media/screenshot.png)
 
@@ -118,10 +118,14 @@ https://github.com/natbusa/kernelgateway_demos/blob/master/iris-classifier/noteb
 This demo requires docker (https://www.docker.com/community-edition#/download) to be installed in the system. Also use curl or postman or your web browser to inspect that the API exposed by the notebook is working correctly.
 
 You need to build the container with the command:
-```docker build . -t iris_webapp_demo```
+```
+docker build . -t iris_webapp_demo
+```
 
 Type the following to run the container and expose the webapp on port 9000:
-```docker run . -t -p 9000:9000 iris_webapp_demo```
+```
+docker run . -t -p 9000:9000 iris_webapp_demo
+```
 
 Demo will run on http://localhost:9000/public/index.html  
 
