@@ -11,7 +11,12 @@ make install
 make gateway
 ```
 
-The above command will install the necessary packages in a demo conda environment and start the notebook in HTTP API gateway mode on `port 9000`, you can also inspect the notebook, by starting jupyter in notebook mode by running `make notebook` available on `port 8888`. When finished with this demo, you can remove the conda environment by typing `make uninstall`.
+The above command will install the necessary packages in a demo conda environment and start the notebook in HTTP API gateway mode on `port 9000`, you can also inspect the notebook, by starting jupyter in notebook mode on `port 8888` by running:
+```
+make notebook
+``` 
+
+When finished with this demo, you can remove the conda environment by typing `make uninstall`.
 
 ### Testing the API
 
